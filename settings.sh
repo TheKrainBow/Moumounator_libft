@@ -1,0 +1,2 @@
+PATH_TO_LIBFT="../"
+RM_ON_SUCCESS=1
