@@ -9,12 +9,15 @@ if [ -n "$(ls -A outputs/)" ]; then
 fi
 TOTAL_SUCCESS=0
 TOTAL_TESTS=0
-
+PATH_TO_LIBFT=$(echo $PATH_TO_LIBFT | sed "s/\/$//")
 cd $PATH_TO_LIBFT
 make > /dev/null
 cd - > /dev/null
-cp $PATH_TO_LIBFT/libft.a ./libs
-
+cp $PATH_TO_LIBFT/libft.a ./libs 2> /dev/null
+if [ $? -ne 0 ]; then
+	echo "Couldn't make libft"
+	exit
+fi
 if [ "$1" == "bonus" ]; then
 	echo "Testing Bonus:"
 	echo "No test added yet"
