@@ -12,11 +12,11 @@ void	test_cmp(const void *s1, const void *s2, size_t n)
 	int		cmp_return = ft_memcmp(s1, s2, n);
 
 	if (cmp_return > 0)
-		printf("memcmp(\"%s\", \"%s\", %d) returned a positive value\n", TESTED_STRING1, TESTED_STRING2, TESTED_SIZE);
+		printf("memcmp(\"%s\", \"%s\", %zu) returned a positive value\n", (char *)s1, (char *)s2, n);
 	else if (cmp_return < 0)
-		printf("memcmp(\"%s\", \"%s\", %d) returned a negative value\n", TESTED_STRING1, TESTED_STRING2, TESTED_SIZE);
+		printf("memcmp(\"%s\", \"%s\", %zu) returned a negative value\n", (char *)s1, (char *)s2, n);
 	else
-		printf("memcmp(\"%s\", \"%s\", %d) returned zero\n", TESTED_STRING1, TESTED_STRING2, TESTED_SIZE);
+		printf("memcmp(\"%s\", \"%s\", %zu) returned zero\n", (char *)s1, (char *)s2, n);
 
 }
 
