@@ -14,6 +14,9 @@ cd $PATH_TO_LIBFT
 make > /dev/null
 cd - > /dev/null
 cp $PATH_TO_LIBFT/libft.a ./libs 2> /dev/null
+cd -
+make fclean
+cd -
 if [ $? -ne 0 ]; then
 	echo "Couldn't make libft"
 	exit
