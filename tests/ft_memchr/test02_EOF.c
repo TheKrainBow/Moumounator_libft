@@ -12,5 +12,5 @@ int main(void)
 		printf("memchr returned NULL\n");
 		return 1;
 	}
-    printf("memchr(\"%s\", '%c', %d) returned %s\n", test, 0, 4, dest);
+    printf("memchr(\"%s\", '\\0', %d) returned %s\n", test, 4, dest);
 }

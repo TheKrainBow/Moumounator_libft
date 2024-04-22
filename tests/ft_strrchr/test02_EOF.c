@@ -12,5 +12,5 @@ int main(void)
 		printf("strrchr returned NULL\n");
 		return 1;
 	}
-    printf("strrchr(\"%s\", '%c') returned %s\n", test, 0, dest);
+    printf("strrchr(\"%s\", '\\0') returned %s\n", test, dest);
 }
