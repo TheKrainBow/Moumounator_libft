@@ -9,5 +9,8 @@ int main(void)
 
 	printf("strlcat returned %ld\n", ft_strlcat(dst, src, 0));
 	for (int i = 0; i < 10; i++)
-		printf("%d ", dst[i]);
+		if (dst[i])
+			printf("%c", dst[i]);
+		else
+			printf("\\0");
 }

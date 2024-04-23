@@ -16,6 +16,9 @@ int main(void)
 
 	ft_memmove(bytes + 3, bytes, 5);
 	for (int i = 0; i < 10; i++)
-		printf("%d ", bytes[i]);
+		if (bytes[i])
+			printf("%c ", bytes[i]);
+		else
+			printf("\\0 ");
 	free(bytes);
 }

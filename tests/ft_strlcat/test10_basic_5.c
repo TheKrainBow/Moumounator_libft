@@ -9,8 +9,8 @@ int main(void)
 	char	*src = "AAAAAAAAA";
 
 	memset(dst, 0, 30);
-	dst[0] = 'B';
-	printf("strlcat returned %ld\n", ft_strlcat(dst, src, 4));
+	memset(dst, 'X', 5);
+	printf("strlcat returned %ld\n", ft_strlcat(dst, src, -1));
 	for (int i = 0; i < 30; i++)
 		if (dst[i])
 			printf("%c", dst[i]);
