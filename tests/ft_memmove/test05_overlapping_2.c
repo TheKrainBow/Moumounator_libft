@@ -4,6 +4,11 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n);
 
+void __real_free(void *ptr);
+void __wrap_free(void *ptr)
+{
+	__real_free(ptr);
+}
 int main(void)
 {
 	
