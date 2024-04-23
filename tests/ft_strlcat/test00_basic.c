@@ -15,5 +15,5 @@ int main(void)
 		if (dst[i])
 			printf("%c", dst[i]);
 		else
-			printf("\\0");
+			printf("?");
 }
