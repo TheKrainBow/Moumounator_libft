@@ -26,9 +26,8 @@ print_exercice_name $DAY_NUMBER "" $(find $DAY_PATH/$DAY_NUMBER/ -mindepth 1 -ty
 NUMBER_OF_SUCCESS=0
 NUMBER_OF_TESTS=0
 
-# Execute each tests
-for FULL_TEST_NAME in $TEST_LIST
-do
+test_function()
+{
 	TEST_NAME=$(echo $FULL_TEST_NAME | sed "s/.*test//")
 	# Create output folder if doesn't exist
 	OUTPUT_PATH="outputs/$DAY_NUMBER/${TEST_NAME}"
@@ -47,7 +46,7 @@ do
 		rm ./$OUTPUT_PATH/answer.out
 		cp ./$DAY_PATH/${FULL_TEST_NAME}.c $OUTPUT_PATH/main.c
 		NUMBER_OF_TESTS=$(($NUMBER_OF_TESTS + 1))
-		continue
+		return
 	else
 		rm $OUTPUT_PATH/user.compilation_error.out
 	fi
@@ -74,7 +73,14 @@ do
 		fi
 	fi
 	NUMBER_OF_TESTS=$(($NUMBER_OF_TESTS + 1))
+}
+
+# Execute each tests
+for FULL_TEST_NAME in $TEST_LIST
+do
+	test_function
 done
+wait
 if [ $NUMBER_OF_SUCCESS == $NUMBER_OF_TESTS ]; then
 	print_result $(find $DAY_PATH/$DAY_NUMBER/ -mindepth 1 -type f -name "*.c" | sed "s/.*\/test//" | sed "s/_.*//" | wc -l)
 else

@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <limits.h>
 
-#define TESTED_STRING1 "Trouverez vous Charly dans cette phrase?"
-#define TESTED_STRING2 ""
-#define TESTED_SIZE 0
+#define TESTED_STRING1 "aaabcabcd"
+#define TESTED_STRING2 "abcd"
+#define TESTED_SIZE 9
 
 char	*ft_strnstr(const char *big, const char *little, size_t n);
 

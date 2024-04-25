@@ -26,3 +26,4 @@ print_result ()
 		printf "\033[31;1;1mKO\033[0m\n"
 	fi
 }
+
