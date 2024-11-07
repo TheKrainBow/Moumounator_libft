@@ -13,7 +13,8 @@ jobs:
       - name: Downloads the tested libft and changes the settings
         run: |
           git clone https://github.com/vvarodi/libft_42
-          echo "PATH_TO_LIBFT="../"\nRM_ON_SUCCESS=1" > settings.sh
+          echo "PATH_TO_LIBFT=\"../\"" > settings.sh
+          echo "RM_ON_SUCCESS=1" >> settings.sh
       - name: Run tests
         run: bash Moumounator.sh
       - uses: actions/upload-artifact@v4
