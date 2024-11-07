@@ -1,6 +1,8 @@
 name: Check with confirmed libft
 run-name: ${{ github.actor }} has edited the tests
-on: [push]
+on: 
+  - push
+  - fork
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
