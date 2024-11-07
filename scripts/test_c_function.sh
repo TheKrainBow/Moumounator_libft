@@ -35,7 +35,7 @@ test_function()
 		mkdir $OUTPUT_PATH
 	fi
 	# Compile test with working library
-	cc ./$DAY_PATH/${FULL_TEST_NAME}.c libs/Moumounator.a -Wl,--wrap,malloc -Wl,--wrap,free -lm -lbsd -o $OUTPUT_PATH/answer.out
+	cc ./$DAY_PATH/${FULL_TEST_NAME}.c libs/Moumounator.a -Wl,--wrap,malloc -Wl,--wrap,free -lm -o $OUTPUT_PATH/answer.out
 	if [ $? -ne 0 ]; then
 		continue
 	fi
