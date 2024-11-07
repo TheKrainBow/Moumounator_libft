@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: apt install -y libc6-dev gcc g++ make dpkg-dev
+        run: sudo apt-get install -y libc6-dev gcc g++ make dpkg-dev
       - name: Downloads the tested libft and changes the settings
         run: |
           git clone https://github.com/vvarodi/libft_42
