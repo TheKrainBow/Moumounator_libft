@@ -1,0 +1,23 @@
+name: Check with confirmed libft
+run-name: ${{ github.actor }} has edited the tests
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: apt install -y libc6-dev gcc g++ make dpkg-dev
+      - name: Downloads the tested libft and changes the settings
+        run: |
+          git clone https://github.com/vvarodi/libft_42
+          echo "PATH_TO_LIBFT="../"\nRM_ON_SUCCESS=1" > settings.sh
+      - name: Run tests
+        run: bash Moumounator.sh
+      - uses: actions/upload-artifact@v4
+        with: 
+          name: results
+          path: ./outputs
+          if-no-files-found: ignore
+      
+      
