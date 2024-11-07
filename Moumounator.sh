@@ -48,4 +48,5 @@ else
 	printf "│\033[0m %3d/%-3d tests                 \033[31;1;1m│\n" $TOTAL_SUCCESS $TOTAL_TESTS
 	printf "│\033[0m Check outputs for details :(  \033[31;1;1m│\n"
 	printf "╰───────────────────────────────╯\033[0m\n"
+	exit 1
 fi

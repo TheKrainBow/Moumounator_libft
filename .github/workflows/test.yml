@@ -13,7 +13,7 @@ jobs:
       - name: Run tests
         run: |
           git clone https://github.com/vvarodi/libft_42
-          echo "PATH_TO_LIBFT=\"../\"" > settings.sh
+          echo "PATH_TO_LIBFT=\"./libft_42/libft/\"" > settings.sh
           echo "RM_ON_SUCCESS=1" >> settings.sh
           bash Moumounator.sh
       - uses: actions/upload-artifact@v4
