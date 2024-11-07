@@ -35,7 +35,11 @@ test_function()
 		mkdir $OUTPUT_PATH
 	fi
 	# Compile test with working library
-	cc ./$DAY_PATH/${FULL_TEST_NAME}.c libs/Moumounator.a -Wl,--wrap,malloc -Wl,--wrap,free -lm -o $OUTPUT_PATH/answer.out
+	if [ ! -d "/usr/include/bsd/" ]; then
+  	echo "The libbsd library is required but the /usr/include/bsd/ directory is not found. Please install the libbsd development package and try again."
+  	exit 1
+	fi
+	cc ./$DAY_PATH/${FULL_TEST_NAME}.c libs/Moumounator.a -Wl,--wrap,malloc -Wl,--wrap,free -lm -lbsd -o $OUTPUT_PATH/answer.out
 	if [ $? -ne 0 ]; then
 		continue
 	fi
@@ -57,9 +61,9 @@ test_function()
 		printf "Timed out after 3 secondes!" > $OUTPUT_PATH/user_errors.txt
 	fi
 	if [[ -z $(grep '[^[:space:]]' $OUTPUT_PATH/user_errors.txt) ]]; then
-		rm $OUTPUT_PATH/user_errors.txt
+		rm -f $OUTPUT_PATH/user_errors.txt
 	fi
-	rm ./$OUTPUT_PATH/answer.out ./$OUTPUT_PATH/user.out
+	rm -f ./$OUTPUT_PATH/answer.out ./$OUTPUT_PATH/user.out
 	# Diff the txt files
 	diff $OUTPUT_PATH/answer.txt $OUTPUT_PATH/user.txt > $OUTPUT_PATH/diff.txt
 	if [ $? -eq 1 ] || [ -s "$OUTPUT_PATH/user_errors.txt" ]; then

@@ -21,8 +21,7 @@ char	*strnstr(const char *haystack, const char *needle, size_t len)
 	return (NULL);
 }
 
-#define TESTED_STRING1 "Trouverez vous Charly dans cette phrase? Attention,
-	le second Charly est un piège!"
+#define TESTED_STRING1 "Trouverez vous Charly dans cette phrase? Attention, le second Charly est un piège!"
 #define TESTED_STRING2 "Charly"
 #define TESTED_SIZE 83
 

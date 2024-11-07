@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt-get install -y libc6-dev gcc g++ make dpkg-dev
+        run: sudo apt-get update && sudo apt-get install -y libc6-dev gcc g++ make dpkg-dev libbsd-dev clang
       - name: Run tests
         run: |
-          git clone https://github.com/vvarodi/libft_42
-          echo "PATH_TO_LIBFT=\"./libft_42/libft/\"" > settings.sh
+          git clone https://github.com/cliftontoaster-reid/libft
+          echo "PATH_TO_LIBFT=\"./libft/\"" > settings.sh
           echo "RM_ON_SUCCESS=1" >> settings.sh
           bash Moumounator.sh
       - uses: actions/upload-artifact@v4
